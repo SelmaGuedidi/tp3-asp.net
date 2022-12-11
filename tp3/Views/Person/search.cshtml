@@ -1,0 +1,41 @@
+﻿@model tp3.Models.Person
+@{
+    ViewBag.Title = "search";
+}
+
+<div style="display: flex; align-items:center;width:100% ">
+    <h1>Search</h1>
+</div>
+
+
+
+@{
+    if (ViewBag.notFound)
+    {
+        <div style="padding: 20px; border-radius:10px; text-align:center" class="alert-danger">
+            THIS PERSON IS NOT FOUND PLEASE VERIFY YOUR INFORMATIONS
+        </div>
+    }
+}
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("search", "Person", FormMethod.Post))
+        {
+            <td>
+                @Html.TextBoxFor(m => m.first_name)<br /><br />
+            </td>
+             <td> 
+                @Html.TextBoxFor(m => m.country)<br /><br />
+             </td>
+             <td> 
+                 <input type="submit" value="Search" class="btn btn-primary" />
+             </td>
+
+        }
+    </div>
+</div>
+
+
+
